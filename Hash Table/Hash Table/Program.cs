@@ -131,6 +131,7 @@ namespace Hash_Table
                 {
                     Console.WriteLine(item + " has been removed from the list");
                     hashTable[index] = "Deleted";
+                    size = size - 1;
                     found = true;
                 }
                 else
@@ -145,9 +146,10 @@ namespace Hash_Table
             }
         }
 
-        public int findLoadFactor()
+        public decimal findLoadFactor()
         {
-            int loadFactor = size / maxSize;
+            decimal loadFactor = (size*100 / maxSize);
+            int holder = Convert.ToInt32(loadFactor);
             return (loadFactor);
         }
     }
@@ -158,7 +160,7 @@ namespace Hash_Table
         static void Main(string[] args)
         {
             Hash_Table h = new Hash_Table();
-            int lf;
+            decimal lf;
             string input;
             bool end = false;
 
